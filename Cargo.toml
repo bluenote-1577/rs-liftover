@@ -1,5 +1,5 @@
 [package]
-name = "liftover"
+name = "rs-liftover"
 version = "0.1.0"
 edition = "2021"
 
