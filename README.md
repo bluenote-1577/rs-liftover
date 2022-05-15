@@ -36,5 +36,5 @@ cargo build --release
 
 ## Limitations
 
-Deletions on the source (secondary) genome carry over exactly to the liftover. So if this deletion isn't actually present, you'll get an insertion and a deletion back-to-back. Realignment would fix this, but this isn't currently implemented. 
+Deletions on the source (secondary) genome carry over exactly to the liftover. So if this deletion isn't actually present on the read, you'll get an insertion (of the missing sequence) and a deletion of the source genome back-to-back in the CIGAR. Realignment would fix this, but this isn't currently implemented. 
 
