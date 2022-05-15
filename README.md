@@ -3,12 +3,13 @@ Simple sequence mapping liftover tool designed to be general and work with even 
 
 ## Introduction
 
+I had trouble working with liftover tools like leviosam and CrossMap, especially in the presence of SVs, so I hacked together a very simple liftover tool. `rs-liftover` lifts over the mapping to the other reference in a very straightforward (i.e. stupid) manner.
+
+
 Given a
 
 1. BAM file with mapped sequences to liftover 
 2. UCSC chain file between two references
-
-`liftover` lifts over the mapping to the other reference in a very straightforward (i.e. stupid) manner.
 
 Gaps in the chain file are turned into deletions and insertions without much thought. Works well if reads map decently onto the initial reference.
 
@@ -31,4 +32,4 @@ cargo build --release
 
 `./target/release/liftover -b my_output.bam chainfile.chain bamfile.bam lift-destination.fa lift-source.fa`
 
-`liftover` only works with chain files with a single long chain right now. Will fix in a bit...
+rs-liftover only works with chain files with a single long chain right now. Will fix in a bit...
