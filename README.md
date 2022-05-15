@@ -13,6 +13,8 @@ Given a
 
 Gaps in the chain file are turned into deletions and insertions without much thought and the reads are extended appropriately. Works well if reads map decently onto the initial reference.
 
+Currently, only the longest chain for each source reference genome is taken so we assume that the chaining is relatively good. 
+
 Tested on nanopore data with standard CIGAR strings. 
 I would reccomend using other liftover tools like leviosam or CrossMap unless they don't work with your data for some reason.
 
@@ -32,4 +34,3 @@ cargo build --release
 
 `./target/release/liftover -b my_output.bam chainfile.chain bamfile.bam lift-destination.fa lift-source.fa` outputs an unsorted bam file called `my_output.bam`. 
 
-rs-liftover only works with chain files with a single long chain right now. Will fix in a bit...
