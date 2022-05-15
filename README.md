@@ -8,9 +8,9 @@ Given a
 1. BAM file with mapped sequences to liftover 
 2. UCSC chain file between two references
 
-`liftover` lifts over the mapping to the other reference in a very straightforward manner.
+`liftover` lifts over the mapping to the other reference in a very straightforward (i.e. stupid) manner.
 
-Gaps in the chain file are turned into deletions and insertions in a relatively silly manner. Works well if reads map well onto the initial reference.
+Gaps in the chain file are turned into deletions and insertions without much thought. Works well if reads map decently onto the initial reference.
 
 Tested on nanopore data with standard CIGAR strings. 
 I would reccomend using other liftover tools like leviosam or CrossMap unless they don't work with your data for some reason.
