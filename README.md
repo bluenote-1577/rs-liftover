@@ -30,6 +30,6 @@ cargo build --release
 
 ### Running liftover
 
-`./target/release/liftover -b my_output.bam chainfile.chain bamfile.bam lift-destination.fa lift-source.fa`
+`./target/release/liftover -b my_output.bam chainfile.chain bamfile.bam lift-destination.fa lift-source.fa` outputs an unsorted bam file called `my_output.bam`. 
 
 rs-liftover only works with chain files with a single long chain right now. Will fix in a bit...
