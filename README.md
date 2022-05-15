@@ -11,7 +11,7 @@ Given a
 1. BAM file with mapped sequences to liftover 
 2. UCSC chain file between two references
 
-Gaps in the chain file are turned into deletions and insertions without much thought. Works well if reads map decently onto the initial reference.
+Gaps in the chain file are turned into deletions and insertions without much thought and the reads are extended appropriately. Works well if reads map decently onto the initial reference.
 
 Tested on nanopore data with standard CIGAR strings. 
 I would reccomend using other liftover tools like leviosam or CrossMap unless they don't work with your data for some reason.
