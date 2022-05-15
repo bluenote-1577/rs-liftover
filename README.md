@@ -34,3 +34,7 @@ cargo build --release
 
 `./target/release/liftover -b my_output.bam chainfile.chain bamfile.bam lift-destination.fa lift-source.fa` outputs an unsorted bam file called `my_output.bam`. 
 
+## Limitations
+
+Deletions on the source (secondary) genome carry over exactly to the liftover. So if this deletion isn't actually present, you'll get an insertion and a deletion back-to-back. Realignment would fix this, but this isn't currently implemented. 
+
