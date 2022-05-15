@@ -135,11 +135,14 @@ pub fn realign(
 
     let mut bam = bam::Reader::from_path(bam_file).unwrap();
     let mut header = bam::Header::from_template(bam.header());
-    let mut primary_head_rec = HeaderRecord::new(b"SQ");
-    primary_head_rec.push_tag(b"SN", &cinfo.primary_name);
-    primary_head_rec.push_tag(b"LN", &primary_seqs_dict[&cinfo.primary_name].len());
-    //    header.push_record(&primary_head_rec);
-
+    let hv = HeaderView::from_header(&header);
+    if hv.tid(&cinfo.primary_name.as_bytes()).is_none(){
+        let mut primary_head_rec = HeaderRecord::new(b"SQ");
+        primary_head_rec.push_tag(b"SN", &cinfo.primary_name);
+        primary_head_rec.push_tag(b"LN", &primary_seqs_dict[&cinfo.primary_name].len());
+        header.push_record(&primary_head_rec);
+    }
+    
     let mut writer =
         bam::Writer::from_path(&params.output_name, &header, bam::Format::Bam).unwrap();
 
